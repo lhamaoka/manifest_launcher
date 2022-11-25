@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: practica_final_backend
+  name: practica-final-backend
   labels:
-    app: practica_final_backend
+    app: practica-final-backend
     type: back-end
 spec:
   template:
     metadata:
-      name: practica_final_backend
+      name: practica-final-backend
       labels:
         app: spring-boot
         type: back-end
     spec:
       containers:
-        - name: practica_final_backend
-          image: "lhamaoka/practica_final_backtend:latest"
+        - name: practica-final-backend
+          image: "lhamaoka/practica-final-backend:latest"
           imagePullPolicy: Always
   replicas: 1
   selector:
