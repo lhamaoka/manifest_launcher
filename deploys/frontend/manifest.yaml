@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: practica-final-frontend
-          image: "lhamaoka/angular-14-app:latest"
+          image: "lhamaoka/practica-final-frontend:latest"
           imagePullPolicy: Always
   replicas: 1
   selector:
