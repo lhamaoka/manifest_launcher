@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: practica-final-frontend
+  labels:
+    app: practica-final-frontend
+    type: front-end
+spec:
+  template:
+    metadata:
+      name: practica-final-frontend
+      labels:
+        app: angular
+        type: front-end
+    spec:
+      containers:
+        - name: practica-final-frontend
+          image: "lhamaoka/practica-final-frontend:latest"
+          imagePullPolicy: Always
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular
+      type: front-end
