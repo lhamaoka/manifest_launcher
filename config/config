@@ -1,32 +1,31 @@
 apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority: ca.crt
-    extensions:
-    - extension:
-        last-update: Fri, 25 Nov 2022 08:05:26 CET
-        provider: minikube.sigs.k8s.io
-        version: v1.28.0
-      name: cluster_info
-    server: https://192.168.49.2:8443
-  name: practicafinal
-contexts:
-- context:
-    cluster: practicafinal
-    extensions:
-    - extension:
-        last-update: Fri, 25 Nov 2022 08:05:26 CET
-        provider: minikube.sigs.k8s.io
-        version: v1.28.0
-      name: context_info
-    namespace: default
-    user: practicafinal
-  name: practicafinal
-current-context: practicafinal
 kind: Config
-preferences: {}
+clusters:
+  - name: daita
+    cluster:
+      server: https://192.168.49.2:8443
+      certificate-authority: ca.crt
+      insecure-skip-tls-verify: false
+  - name: practicafinal
+    cluster:
+      server: https://192.168.58.2:8443
+      certificate-authority: /home/bootuser/.minikube/ca.crt
+      insecure-skip-tls-verify: false
 users:
-- name: practicafinal
-  user:
-    client-certificate: client.crt
-    client-key: client.key
+  - name: daita
+    user:
+      client-certificate: client.crt
+      client-key: client.key
+  - name: practicafinal
+    user:
+      client-certificate: client.crt
+      client-key: client.key
+contexts:
+  - name: practicafinal
+    context:
+      cluster: practicafinal
+      name: practicafinal
+      user: practicafinal
+      namespace: default
+preferences: {}
+current-context: practicafinal
