@@ -1,31 +1,32 @@
 apiVersion: v1
-kind: Config
 clusters:
-  - name: daita
-    cluster:
-      server: https://192.168.49.2:8443
-      certificate-authority: ca.crt
-      insecure-skip-tls-verify: false
-  - name: practicafinal
-    cluster:
-      server: https://192.168.58.2:8443
-      certificate-authority: ca.crt
-      insecure-skip-tls-verify: false
-users:
-  - name: daita
-    user:
-      client-certificate: client.crt
-      client-key: client.key
-  - name: practicafinal
-    user:
-      client-certificate: client.crt
-      client-key: client.key
+- cluster:
+    certificate-authority: ca.crt
+    extensions:
+    - extension:
+        last-update: Mon, 12 Dec 2022 07:44:52 CET
+        provider: minikube.sigs.k8s.io
+        version: v1.28.0
+      name: cluster_info
+    server: https://127.0.0.1:60580
+  name: miperfil1
 contexts:
-  - name: practicafinal
-    context:
-      cluster: practicafinal
-      name: practicafinal
-      user: practicafinal
-      namespace: default
+- context:
+    cluster: miperfil1
+    extensions:
+    - extension:
+        last-update: Mon, 12 Dec 2022 07:44:52 CET
+        provider: minikube.sigs.k8s.io
+        version: v1.28.0
+      name: context_info
+    namespace: default
+    user: miperfil1
+  name: miperfil1
+current-context: miperfil1
+kind: Config
 preferences: {}
-current-context: practicafinal
+users:
+- name: miperfil1
+  user:
+    client-certificate: client.crt
+    client-key: client.key
